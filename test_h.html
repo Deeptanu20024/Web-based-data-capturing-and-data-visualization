@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Slider</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    #video-slider {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    #video-slider video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    
+    #video-slider .active {
+      opacity: 1;
+    }
+    
+    #video-slider .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(87, 59, 7, 0.4);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+      font-size: 24px;
+    }
+    
+    #video-slider .navigation-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      z-index: 2;
+    }
+    
+    #video-slider .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #fff;
+      margin: 0 8px;
+      cursor: pointer;
+    }
+    
+    #video-slider .dot.active {
+      background-color: #ff0000;
+    }
+
+    #home-link {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+      z-index: 2;
+      animation: slideLeft 2s infinite;
+    }
+
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+       #logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+
+    #logo img {
+      width: 100px;
+      height: auto;
+    }
+ #logo img{
+  height:200px; 
+  width:200px;
+  padding:-10px;
+  margin: 0;
+  animation: animate 1s;
+}
+@keyframes animate {
+  from{
+    margin-top: 200px;
+  }
+  to{
+    margin-left: 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <a href="http://localhost:8008/NITA-main2/index2.html" id="home-link">
+    <i class="fas fa-arrow-right"></i>
+  </a>
+
+  <div id="video-slider">
+    <video class="active" src="videos/video1.mp4" autoplay muted loop></video>
+    <video src="videos/video2.mp4" autoplay muted loop></video>
+    <video src="videos/video3.mp4" autoplay muted loop></video>
+    <div class="overlay">
+    </div>
+    <div class="navigation-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+<!--   <div id="logo">SCYBORG
+  </div> -->
+  <div id="logo">
+    <img src="logo/SCYBORG_3.png" height="500px" width="500px" alt="Logo">
+  </div>
+
+  <script>
+    // Function to handle video slider
+    function handleVideoSlider() {
+      const videos = document.querySelectorAll('#video-slider video');
+      const dots = document.querySelectorAll('#video-slider .dot');
+      let activeVideoIndex = 0;
+
+      function playVideo(index) {
+        videos.forEach(video => {
+          video.pause();
+          video.muted = true;
+        });
+        videos[index].currentTime = 0;
+        videos[index].play();
+      }
+
+      function setActiveVideo(index) {
+        videos.forEach(video => video.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        videos[index].classList.add('active');
+        dots[index].classList.add('active');
+      }
+
+      function handleDotClick(index) {
+        if (index !== activeVideoIndex) {
+          activeVideoIndex = index;
+          setActiveVideo(activeVideoIndex);
+          playVideo(activeVideoIndex);
+        }
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => handleDotClick(index));
+      });
+
+      function handleVideoEnded() {
+        activeVideoIndex = (activeVideoIndex + 1) % videos.length;
+        setActiveVideo(activeVideoIndex);
+        playVideo(activeVideoIndex);
+      }
+
+      videos.forEach(video => {
+        video.addEventListener('ended', handleVideoEnded);
+      });
+
+      function autoplayVideoSlider() {
+        setInterval(() => {
+          handleVideoEnded();
+        }, 5000); // Change slide every 5 seconds
+      }
+
+      playVideo(activeVideoIndex);
+      autoplayVideoSlider();
+    }
+
+    // Initialize video slider
+    handleVideoSlider();
+  </script>
+</body>
+</html>

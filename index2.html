@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Monitoring And Agv's </title>
+
+
+<!-------------------CSS STYLESHEET-------------------->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+
+ <!-------------------JS SCRIPTS-------------------->
+     <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  </head>
+  <body>
+
+
+  <!-------------------HEADER-------------------->
+    <section class="showcase">
+        <header>
+          <h2 class="logo"><img src="logo/SCYBORG_3.png""></img></h2>
+          <div class="toggle"></div>
+        </header>
+        <!-- <br> --><span></span>
+        <div class="overlay"></div>
+        <br><br>
+        <div class="text">
+          <div class="contentleft">
+            <h3 class="Subject" >Web Based Data Capturing and Data Visualization</h3> 
+          <!-- <h3>Exploring The World</h3> -->
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.</p>
+          <a href="#" class="explore">Explore</a>
+        </div>
+          <div class="contentright">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OIdMkZyhx7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+          </div>
+        </div>
+        <ul class="social">
+          <li><a href="https://www.facebook.com/sarbajit.acharjee.182" target="_blank"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+          <li><a href="https://twitter.com/sar39502638" target="_blank"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+          <li><a href="https://www.instagram.com/sarbajit_achariya/" target="_blank"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+        </ul>
+      </section>
+<section><br><br><br></section>
+<!-------------------NAVBAR-------------------->
+      <div class="menu">
+        <ul>
+          <li><a href="#Dashboard">Dashboard</a></li>
+          <div class="dropdown">
+            <button class="dropbtn"><h2><a href="#services" class="black">Drop Down Bar</a></h2></button>
+            <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+            </div>
+          </div>
+          <li><a  href="#services">Services</a></li>
+          <li><a  href="#Gallery">Gallery</a></li>
+          <li><a  href="#About US">About US</a></li>
+          <li><a  href="#Contact us">Contact us</a></li>
+          <div class="dropdown">
+            <button class="dropbtn"><h2><a href="#services" class="black">Drop Down Bar</a></h2></button>
+            <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+            </div>
+          </div>
+        </ul>
+      </div>
+<section><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></section>
+
+<!--------------------CAROUSEL------------------->
+
+<section>
+  <h2 id="Gallery">Gallery</h2><br>
+  <div class="wrapper">
+    <i id="left" class="fa-solid fa-angle-left"></i>
+    <div class="carousel">
+      <img src="images/img-1.jpg" alt="img" draggable="false">
+      <img src="images/img-2.jpg" alt="img" draggable="false">
+      <img src="images/img-3.jpg" alt="img" draggable="false">
+      <img src="images/img-4.jpg" alt="img" draggable="false">
+      <img src="images/img-5.jpg" alt="img" draggable="false">
+      <img src="images/img-6.jpg" alt="img" draggable="false">
+      <img src="images/img-7.jpg" alt="img" draggable="false">
+      <img src="images/img-8.jpg" alt="img" draggable="false">
+      <img src="images/img-9.jpg" alt="img" draggable="false">
+    </div>
+    <i id="right" class="fa-solid fa-angle-right"></i>
+  </div>
+
+  </section>
+
+
+
+<!-------------------DASHBOARD-------------------->
+<main>
+  <div class="heading">
+    <h1>DASHBOARD</h1>
+  </div>
+  <div class="insides">
+    <!-- Sensors dynamically generated from the database -->
+  </div>
+</main>
+
+<!--------------DASHBOARD2-------------->
+
+<section class="dashboard">
+  <h1 class="heading">Dashboard</h1>
+
+  <div class="container">
+    <div id="refreshableSection1">
+      <canvas id="lineGraph1"></canvas>
+    </div>
+    <br>
+    <br>
+    <div id="refreshableSection2">
+      <canvas id="lineGraph2"></canvas>
+    </div>
+    <br>
+    <br>
+    <div id="refreshableSection3">
+      <canvas id="lineGraph3"></canvas>
+    </div>
+    <br>
+    <br>
+    <div id="refreshableSection4">
+      <canvas id="lineGraph4"></canvas>
+    </div>
+  </div>
+
+</section>
+<!--------------DASHBOARD3-------------->
+
+<section class="chart-section">
+        <div class="chart-container">
+            <canvas id="doubleBarGraph"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </section>
+
+
+<!-------------------ABOUT US-------------------->
+ 
+<section class="about" id="About US">
+      <h1>About Us</h1>
+      
+      <!-- Write About  -->
+</section>
+
+<section><br><br><br><br><br><br><br><br></section>
+
+
+
+<!--------------------SERVICES------------------->
+
+    <section class="services" id="services">
+      <h2 class="single">Our Services</h2>
+       <div class="container">
+      
+      <div class="row">
+        <div class="image">
+          <img src="image/1.jpg" alt="">
+          <div class="details">
+            <h2>Your <span>Title</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="more">
+              <!-- <a href="#" class="read-more">Read <span>More</span></a> -->
+              <div class="icon-links">
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#"><i class="fas fa-eye"></i></a>
+                <a href="#"><i class="fas fa-paperclip"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="image">
+          <img src="image/2.jpg" alt="">
+          <div class="details">
+            <h2>Your <span>Title</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="more">
+              <!-- <a href="#" class="read-more">Read <span>More</span></a> -->
+              <div class="icon-links">
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#"><i class="fas fa-eye"></i></a>
+                <a href="#"><i class="fas fa-paperclip"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="image">
+          <img src="image/3.jpg" alt="">
+          <div class="details">
+            <h2>Your <span>Title</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="more">
+              
+              <div class="icon-links">
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#"><i class="fas fa-eye"></i></a>
+                <a href="#"><i class="fas fa-paperclip"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+      
+      <div class="row">
+        
+        <div class="image">
+          <img src="image/4.jpg" alt="">
+          <div class="details">
+            <h2>Your <span>Title</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="more">
+              <!-- <a href="#" class="read-more">Read <span>More</span></a> -->
+              <div class="icon-links">
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#"><i class="fas fa-eye"></i></a>
+                <a href="#"><i class="fas fa-paperclip"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="image">
+          <img src="image/5.jpg" alt="">
+          <div class="details">
+            <h2>Your <span>Title</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="more">
+              <!-- <a href="#" class="read-more">Read <span>More</span></a> -->
+              <div class="icon-links">
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#"><i class="fas fa-eye"></i></a>
+                <a href="#"><i class="fas fa-paperclip"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="image">
+          <img src="image/6.jpg" alt="">
+          <div class="details">
+            <h2>Your <span>Title</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="more">
+              <!-- <a href="#" class="read-more">Read <span>More</span></a> -->
+              <div class="icon-links">
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#"><i class="fas fa-eye"></i></a>
+                <a href="#"><i class="fas fa-paperclip"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    </section>
+
+
+<!--------- contact us start ------------>
+
+<section class="contact" id="Contact us">
+
+
+    <div class="containers">
+       <div class="text"> <i class="fa-sharp fa-solid fa-address-card"></i> Contact us</div>
+        <form action="connect.php" method="post">
+           <div class="form-row"><i class="fa-solid fa-file-signature"></i>
+              <div class="input-data">
+                 <input type="text" required name="firstName">
+                 <div class="underline"></div>
+                 <label for="">First Name</label>
+              </div><i class="fa-sharp fa-solid fa-address-card"></i>
+              <div class="input-data">
+                 <input type="text" required name="lastName">
+                 <div class="underline"></div>
+                 <label for="">Last Name</label>
+              </div>
+           </div>
+           <div class="form-row"><i class="fa-solid fa-envelope"></i>
+              <div class="input-data">
+                 <input type="text" required name="email">
+                 <div class="underline"></div>
+                 <label for="">Email Address</label>
+              </div><i class="fa-solid fa-phone"></i>
+              <div class="input-data">
+                <input type="tel" required name="contactNumber">
+                 <div class="underline"></div>
+                 <label for=""> Contact Number</label>
+              </div>
+           </div>
+           <div class="form-row"><i class="fa-solid fa-message"></i>
+              <div class="input-data textarea">
+                 <textarea rows="8" cols="80" required name="feedback"></textarea>
+                 <br />
+                 <div class="un"></div>
+                 <label for="">Write your message</label>
+                 <br />
+                 <div class="form-row submit-btn">
+                    <div class="input-data">
+                       <div class="inner"></div>
+                       <input type="submit" value="submit">
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </form>
+    </div>
+
+
+
+
+<!-- Footer CODE HERE------------ -->
+<section></section>
+    <div class="footers">
+      <div class="contain">     
+          <div class="row">                       
+              <div class="col-lg-4 col-sm-4 col-xs-12">
+                  <div class="single_footers">
+                      <h4>Services</h4>
+                      <ul>
+                          <li><a href="#">Lorem Ipsum</a></li>
+                          <li><a href="#">Simply dummy text</a></li>
+                          <li><a href="#">The printing and typesetting </a></li>
+                          <li><a href="#">Standard dummy text</a></li>
+                          <li><a href="#">Type specimen book</a></li>
+                      </ul>
+                  </div>
+              </div><!--- END COL --> 
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="single_footers single_footer_address">
+                      <h4>Page Link</h4>
+                      <ul>
+                          <li><a href="#">Lorem Ipsum</a></li>
+                          <li><a href="#">Simply dummy text</a></li>
+                          <li><a href="#">The printing and typesetting </a></li>
+                          <li><a href="#">Standard dummy text</a></li>
+                          <li><a href="#">Type specimen book</a></li>
+                      </ul>
+                  </div>
+              </div><!--- END COL -->
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="single_footers single_footer_address">
+                      <h4>Send Query</h4>
+                      <div class="signup_form">                           
+                          <form action="#" class="subscribe">
+                              <input type="text" class="subscribe__input" placeholder="Enter Email Address"><br><br>
+                             
+                              <div class="subscribe__btns"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/></svg></div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="social_profile">
+                      <ul>
+                          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                          <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                      </ul>
+                  </div>                          
+              </div><!--- END COL -->         
+          </div><!--- END ROW --> 
+                           
+      </div><!--- END CONTAINER -->
+      
+  </div>
+  <div class="folder">
+    <center>
+    <small><strong>IOT PROJECT</strong></small>
+    <nav class="footer-nav">
+      <a  href="#"><h4>Back to Top</h4> </a>
+      <a href="#"><h4> Terms of Use</h4></a>
+      <a href="#"><h4>Privacy</h4> </a>
+    </nav>
+  </center>
+  </div>
+  </body>
+</html>
